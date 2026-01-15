@@ -1,0 +1,477 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Aivon AI - Brutalist Futuristic Theme */
+/* Updated primary color to purple/violet to match logo */
+:root {
+  --background: oklch(0.08 0.02 270);
+  --foreground: oklch(0.95 0.01 270);
+  --card: oklch(0.12 0.02 270);
+  --card-foreground: oklch(0.95 0.01 270);
+  --popover: oklch(0.12 0.02 270);
+  --popover-foreground: oklch(0.95 0.01 270);
+  --primary: oklch(0.7 0.25 300);
+  --primary-foreground: oklch(0.98 0 0);
+  --secondary: oklch(0.6 0.2 270);
+  --secondary-foreground: oklch(0.98 0 0);
+  --accent: oklch(0.75 0.2 330);
+  --accent-foreground: oklch(0.1 0 0);
+  --muted: oklch(0.18 0.02 270);
+  --muted-foreground: oklch(0.55 0.02 270);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.95 0 0);
+  --border: oklch(0.22 0.04 270);
+  --input: oklch(0.15 0.02 270);
+  --ring: oklch(0.7 0.25 300);
+  --chart-1: oklch(0.7 0.25 300);
+  --chart-2: oklch(0.6 0.2 270);
+  --chart-3: oklch(0.75 0.2 330);
+  --chart-4: oklch(0.7 0.15 200);
+  --chart-5: oklch(0.65 0.18 80);
+  --radius: 0.25rem;
+  --sidebar: oklch(0.08 0.02 270);
+  --sidebar-foreground: oklch(0.95 0.01 270);
+  --sidebar-primary: oklch(0.7 0.25 300);
+  --sidebar-primary-foreground: oklch(0.98 0 0);
+  --sidebar-accent: oklch(0.18 0.02 270);
+  --sidebar-accent-foreground: oklch(0.95 0.01 270);
+  --sidebar-border: oklch(0.22 0.04 270);
+  --sidebar-ring: oklch(0.7 0.25 300);
+}
+
+@font-face {
+  font-family: "Clash Display";
+  src: url("https://fonts.cdnfonts.com/s/64066/ClashDisplay-Variable.woff2") format("woff2");
+  font-weight: 200 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Machina";
+  src: url("https://fonts.cdnfonts.com/s/64418/NeueMachina-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Machina";
+  src: url("https://fonts.cdnfonts.com/s/64418/NeueMachina-Ultrabold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme inline {
+  --font-sans: "IBM Plex Mono", "JetBrains Mono", monospace;
+  --font-mono: "IBM Plex Mono", "JetBrains Mono", monospace;
+  --font-display: "Clash Display", "Neue Machina", "Space Grotesk", sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Enhanced noise overlay with multiple layers and better animation */
+.noise-overlay {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  animation: grain 0.15s steps(6) infinite;
+}
+
+/* Secondary noise layer for depth */
+.noise-overlay-2 {
+  position: fixed;
+  top: -25%;
+  left: -25%;
+  width: 150%;
+  height: 150%;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise2'%3E%3CfeTurbulence type='turbulence' baseFrequency='1.2' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise2)'/%3E%3C/svg%3E");
+  animation: grain-2 0.25s steps(8) infinite reverse;
+}
+
+/* More aggressive and varied grain animation */
+@keyframes grain {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  10% {
+    transform: translate(-2%, -5%) scale(1.02);
+  }
+  20% {
+    transform: translate(-8%, 3%) scale(0.98);
+  }
+  30% {
+    transform: translate(4%, -12%) scale(1.01);
+  }
+  40% {
+    transform: translate(-3%, 12%) scale(0.99);
+  }
+  50% {
+    transform: translate(-7%, 5%) scale(1.02);
+  }
+  60% {
+    transform: translate(8%, -2%) scale(0.98);
+  }
+  70% {
+    transform: translate(2%, 8%) scale(1.01);
+  }
+  80% {
+    transform: translate(-5%, 15%) scale(0.99);
+  }
+  90% {
+    transform: translate(-6%, 4%) scale(1.02);
+  }
+}
+
+@keyframes grain-2 {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(5%, -8%) rotate(0.5deg);
+  }
+  50% {
+    transform: translate(-3%, 6%) rotate(-0.5deg);
+  }
+  75% {
+    transform: translate(8%, 3%) rotate(0.3deg);
+  }
+}
+
+/* Brutalist card */
+.brutal-card {
+  border: 1px solid oklch(0.3 0.02 260);
+  background: oklch(0.14 0.02 260 / 0.8);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.brutal-card:hover {
+  border-color: oklch(0.75 0.18 160);
+  box-shadow: 0 0 30px oklch(0.75 0.18 160 / 0.15);
+}
+
+/* Updated glow effects to match purple theme */
+.glow-primary {
+  box-shadow: 0 0 20px oklch(0.7 0.25 300 / 0.4), 0 0 40px oklch(0.7 0.25 300 / 0.2), 0 0 60px oklch(0.7 0.25 300 / 0.1);
+}
+
+.glow-secondary {
+  box-shadow: 0 0 20px oklch(0.6 0.2 270 / 0.4), 0 0 40px oklch(0.6 0.2 270 / 0.2);
+}
+
+.glow-accent {
+  box-shadow: 0 0 20px oklch(0.75 0.2 330 / 0.4), 0 0 40px oklch(0.75 0.2 330 / 0.2);
+}
+
+.text-glow-primary {
+  text-shadow: 0 0 20px oklch(0.7 0.25 300 / 0.6), 0 0 40px oklch(0.7 0.25 300 / 0.4), 0 0 60px
+    oklch(0.7 0.25 300 / 0.2);
+}
+
+.text-glow-secondary {
+  text-shadow: 0 0 20px oklch(0.6 0.2 270 / 0.5), 0 0 40px oklch(0.6 0.2 270 / 0.3);
+}
+
+/* Grid background */
+.grid-bg {
+  background-image: linear-gradient(oklch(0.25 0.02 260 / 0.5) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.25 0.02 260 / 0.5) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(2deg);
+  }
+}
+
+@keyframes float-reverse {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(20px) rotate(-2deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Logo glow animation */
+@keyframes logo-pulse {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 20px oklch(0.7 0.25 300 / 0.5)) drop-shadow(0 0 40px oklch(0.6 0.2 270 / 0.3));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 30px oklch(0.7 0.25 300 / 0.7)) drop-shadow(0 0 60px oklch(0.6 0.2 270 / 0.5));
+    transform: scale(1.02);
+  }
+}
+
+/* New logo border ring animation */
+@keyframes logo-ring-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes logo-ring-pulse {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+/* Scanline effect */
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+/* Added fade-in animation for terminal lines */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fixed logo container to be proper circle with contained logo */
+.logo-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+/* Updated all logo ring classes to ensure they are perfect circles */
+.logo-ring {
+  position: absolute;
+  border-radius: 50% !important;
+  border: 2px solid oklch(0.6 0.2 270 / 0.5);
+  animation: logo-ring-pulse 3s ease-in-out infinite;
+  pointer-events: none;
+  aspect-ratio: 1 / 1;
+}
+
+.logo-ring-outer {
+  position: absolute;
+  border-radius: 50% !important;
+  border: 1px dashed oklch(0.7 0.25 300 / 0.3);
+  animation: logo-ring-spin 20s linear infinite;
+  pointer-events: none;
+  aspect-ratio: 1 / 1;
+}
+
+/* Updated outer ring to be circular with dot indicator */
+.logo-ring-outer::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  background: oklch(0.7 0.25 300);
+  border-radius: 50%;
+  box-shadow: 0 0 10px oklch(0.7 0.25 300), 0 0 20px oklch(0.7 0.25 300 / 0.5);
+}
+
+/* Updated glow ring to be circular */
+.logo-ring-glow {
+  position: absolute;
+  border-radius: 50% !important;
+  background: radial-gradient(circle, oklch(0.7 0.25 300 / 0.2) 0%, oklch(0.6 0.2 270 / 0.1) 50%, transparent 70%);
+  animation: logo-ring-pulse 4s ease-in-out infinite reverse;
+  pointer-events: none;
+  aspect-ratio: 1 / 1;
+}
+
+/* New inner border circle */
+.logo-ring-inner {
+  position: absolute;
+  border-radius: 50% !important;
+  border: 1px solid oklch(0.75 0.2 330 / 0.3);
+  animation: logo-ring-pulse 2.5s ease-in-out infinite 0.5s;
+  pointer-events: none;
+  aspect-ratio: 1 / 1;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 7s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-logo-pulse {
+  animation: logo-pulse 4s ease-in-out infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+/* Scanline effect */
+.scanlines::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    oklch(0 0 0 / 0.03) 2px,
+    oklch(0 0 0 / 0.03) 4px
+  );
+  pointer-events: none;
+}
+
+/* Editorial label */
+.editorial-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: oklch(0.5 0.02 260);
+  font-family: "IBM Plex Mono", monospace;
+}
+
+/* Button styles */
+.btn-brutal {
+  position: relative;
+  border: 1px solid;
+  font-family: "IBM Plex Mono", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.btn-brutal::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.btn-brutal:hover::before {
+  border-color: currentColor;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: oklch(0.15 0.02 260);
+}
+::-webkit-scrollbar-thumb {
+  background: oklch(0.3 0.02 260);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.75 0.18 160);
+}
+
+::selection {
+  background: oklch(0.75 0.18 160 / 0.3);
+  color: oklch(0.95 0.01 260);
+}
